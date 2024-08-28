@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">islami</string>
+    <string name="onboarding_second_title">مرحبًا بك في إسلامي</string>
+    <string name="onboarding_second_label">نحن متحمسون جدًا\n لانضمامك إلى مجتمعنا</string>
+
+    <string name="onboarding_third_title">قراءة القرآن</string>
+    <string name="onboarding_third_label">اقرأ وربك الأكرم</string>
+
+    <string name="onboarding_fourth_title">سورة الأعلى</string>
+    <string name="onboarding_fourth_label">سبح اسم ربك الأعلى</string>
+
+    <string name="onboarding_fifth_title">إذاعة القرآن الكريم</string>
+    <string name="onboarding_fifth_label">يمكنك الاستماع إلى إذاعة القرآن الكريم</string>
+    <string name="islami">Islami</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="next_label">التالي</string>
+    <string name="back_label">السابق</string>
+    <string name="go_label">الذهاب</string>
+    <string name="sebha_title">"سَبِّحِ اسْمَ رَبِّكَ الأعلى "</string>
+    <string name="sobhan_allah_text">سبحان الله\n30</string>
+    <string name="alhamdollah_text">الحمد لله \n30</string>
+    <string name="allah_akbar_text">الله أكبر \n30</string>
+    <string name="radio_tab_text">راديو</string>
+    <string name="quran_tab_text">قرأن</string>
+    <string name="next_pray">الصلاه التاليه - </string>
+    <string name="azkar_en">Azkar</string>
+    <string name="azkar_ar">أذكار</string>
+    <string name="azkar_sabah">أذكار الصباح</string>
+    <string name="evenening_azkar">أذكار المساء</string>
 </resources>
