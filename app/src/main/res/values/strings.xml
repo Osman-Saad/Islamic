@@ -27,4 +27,11 @@
     <string name="azkar_ar">أذكار</string>
     <string name="azkar_sabah">أذكار الصباح</string>
     <string name="evenening_azkar">أذكار المساء</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="sura_name_placeholder">اسم السوره</string>
+    <string name="sura_list_label">Sura List</string>
+    <string name="sura_list_label_ar">قائمه السور</string>
+    <string name="makia_label">مكيه</string>
+    <string name="madania_label">مدنيه</string>
+    <string name="tafsir_title">ألتفسير</string>
 </resources>
