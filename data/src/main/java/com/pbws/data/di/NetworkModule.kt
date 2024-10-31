@@ -68,6 +68,17 @@ class NetworkModule {
             .build()
             .create(ApiManager::class.java)
     }
+
+    @Provides
+    @Singleton
+    @AhadethApiManager
+    fun provideAhadethRetrofitClient(): ApiManager {
+        return Retrofit.Builder()
+            .baseUrl(DataConstant.AHADETH_BASE_URL)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(ApiManager::class.java)
+    }
 }
 
 @Qualifier
@@ -81,3 +92,7 @@ annotation class QuranDetailsApiManager
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class QuranTafsirApiManager
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AhadethApiManager

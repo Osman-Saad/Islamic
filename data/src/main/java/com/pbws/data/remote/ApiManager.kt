@@ -1,6 +1,7 @@
 package com.pbws.data.remote
 
 import com.pbws.data.constant.DataConstant
+import com.pbws.data.model.ahadeth.AhadethDto
 import com.pbws.data.model.qurandetails.DataDto
 import com.pbws.data.model.qurandetails.QuranDetailsDto
 import com.pbws.data.model.quranmodel.QuranDto
@@ -24,4 +25,10 @@ interface ApiManager {
     suspend fun getQuranTafasir(
         @Path("surah") suraNumber: Int
     ):QuranTafasirDto
+
+    @GET(DataConstant.AHADETH_END_POINT)
+    suspend fun getAhadeth(
+        @Query("page") page:Int,
+        @Query("limit") pageSize: Int
+    ):AhadethDto
 }

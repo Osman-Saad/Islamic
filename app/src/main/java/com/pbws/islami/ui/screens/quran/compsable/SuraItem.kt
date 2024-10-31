@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.sp
 import com.pbws.domain.entity.quranentity.SuwarItem
 import com.pbws.islami.R
 import com.pbws.islami.ui.theme.jannaLt
+import java.text.NumberFormat
+import java.util.Locale
 
 @Composable
 fun SuraItem(sura:SuwarItem,modifier: Modifier,onItemClick:(Int)->Unit) {
@@ -37,7 +39,7 @@ fun SuraItem(sura:SuwarItem,modifier: Modifier,onItemClick:(Int)->Unit) {
                     contentDescription = null,
                 )
                 Text(
-                    text = sura.id.toString(),
+                    text = NumberFormat.getInstance(Locale("ar")).format(sura.id),
                     color = Color.White,
                     fontSize = 16.sp,
                 )

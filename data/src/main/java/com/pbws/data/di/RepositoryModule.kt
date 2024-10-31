@@ -1,8 +1,10 @@
 package com.pbws.data.di
 
+import com.pbws.data.repositoryimpl.AhadethRepositoryImpl
 import com.pbws.data.repositoryimpl.QuranDetailsRepositoryImpl
 import com.pbws.data.repositoryimpl.QuranRepositoryImpl
 import com.pbws.data.repositoryimpl.QuranTafasirRepositoryImpl
+import com.pbws.domain.repository.AhadethRepository
 import com.pbws.domain.repository.QuranDetailsRepository
 import com.pbws.domain.repository.QuranTafasirRepository
 import com.pbws.domain.repository.quranrepo.QuranRepository
@@ -22,4 +24,7 @@ abstract class RepositoryModule {
     abstract fun provideQuranDetailsRepository(quranDetailsRepositoryImpl: QuranDetailsRepositoryImpl):QuranDetailsRepository
     @Binds
     abstract fun provideQuranTafasirRepository(quranTafasirRepositoryImpl: QuranTafasirRepositoryImpl):QuranTafasirRepository
+
+    @Binds
+    abstract fun provideAhadethRepository(ahadethRepositoryImpl: AhadethRepositoryImpl): AhadethRepository
 }

@@ -19,7 +19,6 @@
     <string name="sebha_title">"سَبِّحِ اسْمَ رَبِّكَ الأعلى "</string>
     <string name="sobhan_allah_text">سبحان الله\n30</string>
     <string name="alhamdollah_text">الحمد لله \n30</string>
-    <string name="allah_akbar_text">الله أكبر \n30</string>
     <string name="radio_tab_text">راديو</string>
     <string name="quran_tab_text">قرأن</string>
     <string name="next_pray">الصلاه التاليه - </string>
@@ -34,4 +33,7 @@
     <string name="makia_label">مكيه</string>
     <string name="madania_label">مدنيه</string>
     <string name="tafsir_title">ألتفسير</string>
+    <string name="subhan_allah_label">سبحان الله</string>
+    <string name="alhamdulillah_label">الحمد لله</string>
+    <string name="allahu_akbar_label">الله أكبر</string>
 </resources>

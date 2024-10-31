@@ -30,6 +30,8 @@ import androidx.compose.ui.unit.sp
 import com.pbws.domain.entity.qurandetailsentity.AyahsItem
 import com.pbws.islami.R
 import com.pbws.islami.ui.theme.Gold
+import java.text.NumberFormat
+import java.util.Locale
 
 @Composable
 fun AyaItem(ayahsItem: AyahsItem,onAyaClick:(Int)->Unit) {
@@ -60,7 +62,7 @@ fun AyaItem(ayahsItem: AyahsItem,onAyaClick:(Int)->Unit) {
                     tint = Gold,
                 )
                 Text(
-                    text = ayahsItem.numberInSurah.toString(),
+                    text = NumberFormat.getInstance(Locale("ar")).format(ayahsItem.numberInSurah),
                     color = Gold,
 
                     )
