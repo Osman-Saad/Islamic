@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,22 +13,21 @@ import androidx.compose.ui.unit.dp
 import com.pbws.islami.ui.screens.praytime.composable.PrayTimeItem
 
 @OptIn(ExperimentalFoundationApi::class)
-@Preview(showSystemUi = true)
 @Composable
-fun CarouselCard() {
+fun CarouselCard(pagesCount:Int, pageSize:PageSize = PageSize.Fixed(100.dp),padding:Int = 130,  content: @Composable (Int,PagerState) -> Unit) {
     val pagerState = rememberPagerState(
-        pageCount = { 6 },
-        initialPage = 3
+        pageCount = { pagesCount },
+        initialPage = pagesCount/2
     )
 
     HorizontalPager(
         state = pagerState,
         pageSpacing = 8.dp,
-        pageSize = PageSize.Fixed(100.dp),
-        contentPadding = PaddingValues(horizontal = 130.dp),
+        pageSize = pageSize,
+        contentPadding = PaddingValues(horizontal = padding.dp),
         verticalAlignment = Alignment.CenterVertically,
-    ) { page ->
-        PrayTimeItem(page = page, pagerState = pagerState)
+    ) { page -> 
+        content(page,pagerState)
     }
 }
 

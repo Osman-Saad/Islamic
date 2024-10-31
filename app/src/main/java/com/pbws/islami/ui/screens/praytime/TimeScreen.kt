@@ -36,6 +36,7 @@ import com.pbws.islami.R
 import com.pbws.islami.ui.screens.commoncomposable.CarouselCard
 import com.pbws.islami.ui.screens.commoncomposable.IslamicText
 import com.pbws.islami.ui.screens.praytime.composable.AzkarCard
+import com.pbws.islami.ui.screens.praytime.composable.PrayTimeItem
 import com.pbws.islami.ui.screens.praytime.composable.PrayTimeText
 import com.pbws.islami.ui.theme.Black
 import com.pbws.islami.ui.theme.Brown
@@ -100,7 +101,9 @@ fun TimeScreenContent() {
                     PrayTimeText(text = "22 Ṣafar\n1446", color = Color.White, fontSize = 16 )
 
                 }
-                CarouselCard()
+                CarouselCard(pagesCount = 3){page,pagerState ->
+                    PrayTimeItem(page = page, pagerState = pagerState)
+                }
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     buildAnnotatedString {

@@ -49,6 +49,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    // Pagination
+    val paging_version = "3.3.2"
+    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
 }
 kapt {
     correctErrorTypes = true

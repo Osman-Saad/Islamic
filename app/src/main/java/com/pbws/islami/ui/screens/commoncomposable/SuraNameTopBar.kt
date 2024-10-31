@@ -40,7 +40,7 @@ fun SuraNameTopBar(
             fontFamily = jannaLt,
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleLarge,
-            color = titleColor
+            color = titleColor,
         )
         Image(
             painter = painterResource(id = rightSideImg),

@@ -9,14 +9,23 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.InlineTextContent
+import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.Placeholder
+import androidx.compose.ui.text.PlaceholderVerticalAlign
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,7 +34,8 @@ import com.pbws.islami.ui.theme.Black
 import com.pbws.islami.ui.theme.Gold
 
 @Composable
-fun TafasierAhadethContent(content:String,title:String) {
+fun TafasierAhadethContent(content: String, title: String) {
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -48,10 +58,11 @@ fun TafasierAhadethContent(content:String,title:String) {
                 contentAlignment = Alignment.Center,
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.content_bg) ,
+                    painter = painterResource(id = R.drawable.content_bg),
                     contentDescription = null,
                     modifier = Modifier.fillMaxWidth(),
-                    contentScale = ContentScale.FillWidth)
+                    contentScale = ContentScale.FillWidth
+                )
 
                 Text(
                     text = content,
@@ -62,8 +73,8 @@ fun TafasierAhadethContent(content:String,title:String) {
             }
         }
         Image(
-            painter = painterResource(id = R.drawable.mosque2) ,
-            contentDescription =null,
+            painter = painterResource(id = R.drawable.mosque2),
+            contentDescription = null,
             alignment = Alignment.BottomCenter,
             modifier = Modifier.fillMaxWidth(),
             contentScale = ContentScale.FillWidth

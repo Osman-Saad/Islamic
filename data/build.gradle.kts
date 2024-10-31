@@ -60,6 +60,10 @@ dependencies {
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
+    // Pagination
+    val paging_version = "3.3.2"
+    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+
 
 }
 kapt {
