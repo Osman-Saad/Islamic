@@ -32,14 +32,12 @@
         <activity
             android:name=".ui.screens.onboarding.OnBoardingActivity"
             android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Islami">
+            android:label="@string/title_activity_main">
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Islami"/>
+            android:label="@string/title_activity_main" />
         <service
             android:name=".ui.screens.radio.AudioService"
             android:foregroundServiceType="mediaPlayback"
