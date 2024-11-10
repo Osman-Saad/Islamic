@@ -50,95 +50,37 @@ import com.pbws.islami.ui.theme.jannaLt
 @Composable
 fun QuranDetailsContent(
     navController: NavController,
-    showDialog:Boolean,
-    dialogContent:String,
-    loading:Boolean,suraNameAr:String,
-    suraNameEN: String,ayat:List<AyahsItem>,
-    onAyaClick:(Int)->Unit,
-    onDialogDismiss:()->Unit,
-    onDialogBackIconClick:()->Unit
+    showDialog: Boolean,
+    dialogContent: String,
+    loading: Boolean, suraNameAr: String,
+    suraNameEN: String, ayat: List<AyahsItem>,
+    onAyaClick: (Int) -> Unit,
+    onDialogDismiss: () -> Unit,
+    onDialogBackIconClick: () -> Unit
+) {
+    AzkarQuranComposable(
+        navController = navController,
+        loading = loading,
+        titleAr = suraNameAr,
+        titleEn = suraNameEN
     ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = Black),
-        contentAlignment = Alignment.Center
-    ) {
-        AnimatedVisibility(visible = loading) {
-            CircularProgressIndicator(color = Gold, modifier = Modifier.align(Alignment.Center))
-        }
-        AnimatedVisibility(visible = !loading) {
-            Column(
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Column(
-                    modifier = Modifier
-                        .wrapContentSize()
-                        .padding(16.dp),
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = null,
-                            tint = Gold,
-                            modifier = Modifier.clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = ripple(color = Color.Transparent),
-                                onClick = {
-                                    navController.navigateUp()
-                                }
-                            )
-                        )
-                        Text(
-                            text = suraNameEN,
-                            fontSize = 18.sp,
-                            fontFamily = jannaLt,
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center,
-                            style = MaterialTheme.typography.titleMedium,
-                            color = Gold
-                        )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp),
+            contentPadding = PaddingValues(vertical = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            items(ayat){
+                AyaItem(it, onAyaClick = {
+                    if(it>0){
+                        onAyaClick(it-1)
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    SuraNameTopBar(
-                        name = suraNameAr,
-                        leftSideImg = R.drawable.left_side_shape,
-                        rightSideImg = R.drawable.right_side_shape,
-                        titleColor = Gold
-                    )
-                }
-
-                LazyColumn(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 16.dp),
-                    contentPadding = PaddingValues(vertical = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp),
-                ) {
-                    items(ayat){
-                        AyaItem(it, onAyaClick = {
-                            if(it>0){
-                                onAyaClick(it-1)
-                            }
-                        })
-                    }
-                }
-
-                Image(
-                    painter = painterResource(id = R.drawable.mosque),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentScale = ContentScale.FillWidth,
-                )
+                })
             }
         }
     }
-    if(showDialog) {
+    if (showDialog) {
         QuranTafasirDialog(
             content = dialogContent,
             title = stringResource(R.string.tafsir_title),

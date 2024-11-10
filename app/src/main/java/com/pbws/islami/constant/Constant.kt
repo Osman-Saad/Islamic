@@ -1,4 +1,4 @@
-package com.pbws.islami.ui.screens.commoncomposable
+package com.pbws.islami.constant
 
 object Constant {
     const val ON_BOARDING_STATUS = "on_boarding_status"

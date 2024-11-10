@@ -1,5 +1,9 @@
 package com.pbws.islami.ui.screens.commoncomposable.mainscreen
 
+import android.app.Activity
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -11,9 +15,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -22,18 +31,31 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.pbws.islami.ui.screens.navigation.MainNavHost
+import com.pbws.islami.ui.theme.AlphaBlack
 import com.pbws.islami.ui.theme.Gold
 
 
-@Preview(showSystemUi = true)
 @Composable
 fun MainScreen(){
+    val systemUiController = rememberSystemUiController()
+    LaunchedEffect(Unit) {
+        systemUiController.setSystemBarsColor(
+            color = Gold,
+            darkIcons = false
+        )
+        systemUiController.setNavigationBarColor(
+            color = Gold,
+            darkIcons = false
+        )
+    }
     MainScreenContent()
 }
 
 @Composable
 fun MainScreenContent() {
+
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {

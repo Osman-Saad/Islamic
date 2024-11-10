@@ -41,6 +41,7 @@ fun TafasierAhadethContent(content: String, title: String) {
         modifier = Modifier
             .fillMaxSize()
             .background(color = Gold)
+            .verticalScroll(rememberScrollState())
     ) {
         Column(
             modifier = Modifier
@@ -68,7 +69,7 @@ fun TafasierAhadethContent(content: String, title: String) {
                     text = content,
                     fontSize = 24.sp,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.verticalScroll(rememberScrollState())
+//                    modifier = Modifier.verticalScroll(rememberScrollState())
                 )
             }
         }

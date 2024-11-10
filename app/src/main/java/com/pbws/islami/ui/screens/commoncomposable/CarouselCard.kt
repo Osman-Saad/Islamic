@@ -8,9 +8,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.pbws.islami.ui.screens.praytime.composable.PrayTimeItem
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

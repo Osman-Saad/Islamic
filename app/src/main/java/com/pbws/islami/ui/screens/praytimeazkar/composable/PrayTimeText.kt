@@ -1,4 +1,4 @@
-package com.pbws.islami.ui.screens.praytime.composable
+package com.pbws.islami.ui.screens.praytimeazkar.composable
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

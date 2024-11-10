@@ -25,7 +25,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
-fun TabLayout(tabs: List<String>) {
+fun TabLayout(tabs: List<String>,onTabClick:(Int)->Unit) {
     val interactionSource = object : MutableInteractionSource {
         override val interactions: Flow<Interaction> = emptyFlow()
 
@@ -57,7 +57,10 @@ fun TabLayout(tabs: List<String>) {
                     )
                     .padding(vertical = 8.dp),
                 selected = tabIndexSelected == index,
-                onClick = { tabIndexSelected = index }) {
+                onClick = {
+                    tabIndexSelected = index
+                    onTabClick(index)
+                }) {
                 Text(
                     text = tabText,
                     fontSize = 16.sp,

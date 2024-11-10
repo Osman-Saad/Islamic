@@ -10,7 +10,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.pbws.islami.R
 
-@Preview(showSystemUi = true)
 @Composable
 fun SplashScreen(){
     SplashScreenContent()

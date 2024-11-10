@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Islami" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Islami" parent="android:Theme.Material.Light.NoActionBar" >
+        <item name="colorPrimary">@color/gold</item>
+        <item name="colorPrimaryVariant">@color/gold</item>
+        <item name="android:statusBarColor">@color/gold</item>
+        <item name="android:navigationBarColor">@color/gold</item>
+        <item name="android:navigationIcon">@color/gray</item> 
+    </style>
 </resources>
