@@ -20,9 +20,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -48,7 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pbws.islami.MainActivity
 import com.pbws.islami.R
-import com.pbws.islami.ui.screens.commoncomposable.Constant
+import com.pbws.islami.constant.Constant
 import com.pbws.islami.ui.theme.Gold
 import com.pbws.islami.ui.theme.jannaLt
 import dagger.hilt.android.AndroidEntryPoint

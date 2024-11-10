@@ -1,4 +1,4 @@
-package com.pbws.islami.ui.screens.praytime.composable
+package com.pbws.islami.ui.screens.praytimeazkar.composable
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -17,10 +17,13 @@ import androidx.compose.ui.unit.dp
 import com.pbws.islami.ui.screens.commoncomposable.carouselTransition
 import com.pbws.islami.ui.theme.Black
 import com.pbws.islami.ui.theme.Gold
+import com.pbws.islami.utils.convertToArabicNumerals
+import java.text.NumberFormat
+import java.util.Locale
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PrayTimeItem(page:Int,pagerState: PagerState){
+fun PrayTimeItem(prayTime:String,prayNameAr:String,prayNameEn:String,page:Int,pagerState: PagerState){
     Card(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier.carouselTransition(page,pagerState)
@@ -39,17 +42,19 @@ fun PrayTimeItem(page:Int,pagerState: PagerState){
 
             ) {
             PrayTimeText(
-                text = "ASR" ,
+                text = prayNameAr ,
                 color = Color.White,
-                fontSize = 18 )
+                fontSize = 15 )
             PrayTimeText(
-                text = "04:38" ,
+                text = convertToArabicNumerals(prayTime) ,
                 color = Color.White ,
                 fontSize = 24)
             PrayTimeText(
-                text = "PM" ,
+                text = prayNameEn ,
                 color = Color.White ,
-                fontSize = 18)
+                fontSize = 15)
         }
     }
 }
+
+

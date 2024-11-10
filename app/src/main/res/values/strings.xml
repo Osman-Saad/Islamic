@@ -36,4 +36,9 @@
     <string name="subhan_allah_label">سبحان الله</string>
     <string name="alhamdulillah_label">الحمد لله</string>
     <string name="allahu_akbar_label">الله أكبر</string>
+    <string name="pray_time_dialog_title">تفعيل الوصول للموقع</string>
+    <string name="pray_time_dialog_text">يرجى السماح بالوصول إلى الموقع للحصول على أوقات الصلاة بدقة</string>
+    <string name="cancel_btn_text">الغاء</string>
+    <string name="enable_location_btn_text">تفعيل</string>
+    <string name="pray_time_text">مواقيت الصلاه</string>
 </resources>

@@ -53,6 +53,9 @@ dependencies {
     // Pagination
     val paging_version = "3.3.2"
     implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+
+    // Kotlin Date Time
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
 }
 kapt {
     correctErrorTypes = true

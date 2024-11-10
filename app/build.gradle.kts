@@ -65,6 +65,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(libs.androidx.media3.session)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -100,6 +103,16 @@ dependencies {
     val paging_version = "3.3.2"
     implementation("androidx.paging:paging-runtime-ktx:$paging_version")
     implementation("androidx.paging:paging-compose:3.3.2")
+
+    // Kotlin Date Time
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+
+    // PermissionAccompanist
+    implementation("com.google.accompanist:accompanist-permissions:0.36.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
+
+
+
 
 }
 kapt {

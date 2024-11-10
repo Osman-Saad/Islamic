@@ -24,13 +24,11 @@ class NetworkModule {
         ignoreUnknownKeys = true
     }
 
-    val loggingInterceptor = HttpLoggingInterceptor().apply {
-        // Set the logging level (BODY will log request/response bodies)
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    // Create OkHttpClient and add the logging interceptor
-    val okHttpClient = OkHttpClient.Builder()
+    private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
         .build()
 
@@ -79,6 +77,50 @@ class NetworkModule {
             .build()
             .create(ApiManager::class.java)
     }
+
+    @Provides
+    @Singleton
+    @RadioSoundApiManager
+    fun provideRadioSoundRetrofitClient(): ApiManager {
+        return Retrofit.Builder()
+            .baseUrl(DataConstant.RADIO_SOUND_BASE_URL)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(ApiManager::class.java)
+    }
+
+    @Provides
+    @Singleton
+    @QuranSoundApiManager
+    fun provideQuranSoundRetrofitClient(): ApiManager {
+        return Retrofit.Builder()
+            .baseUrl(DataConstant.QURAN_SOUND_BASE_URL)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(ApiManager::class.java)
+    }
+
+    @Provides
+    @Singleton
+    @AzkarApiManager
+    fun provideAzkarRetrofitClient(): ApiManager {
+        return Retrofit.Builder()
+            .baseUrl(DataConstant.AZKAR_BASE_URL)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(ApiManager::class.java)
+    }
+
+    @Provides
+    @Singleton
+    @PrayTimeApiManager
+    fun providePrayTimeRetrofitClient(): ApiManager {
+        return Retrofit.Builder()
+            .baseUrl(DataConstant.PRAY_TIME_BASEURL)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(ApiManager::class.java)
+    }
 }
 
 @Qualifier
@@ -96,3 +138,19 @@ annotation class QuranTafsirApiManager
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class AhadethApiManager
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class RadioSoundApiManager
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class QuranSoundApiManager
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AzkarApiManager
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class PrayTimeApiManager

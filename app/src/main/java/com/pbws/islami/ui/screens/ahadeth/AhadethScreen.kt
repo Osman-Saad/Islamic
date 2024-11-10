@@ -1,5 +1,7 @@
 package com.pbws.islami.ui.screens.ahadeth
 
+import android.os.Build
+import androidx.annotation.RequiresExtension
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +37,7 @@ import com.pbws.islami.ui.theme.Gold
 import java.text.NumberFormat
 import java.util.Locale
 
+@RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
 @Composable
 fun AhadethScreen(viewModel: AhadethViewModel = hiltViewModel()) {
 
@@ -100,12 +103,11 @@ fun AhadethScreenContent(
             Column(modifier = Modifier.fillMaxSize()) {
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
+                        .fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
                     if (loading) {
-                        CircularProgressIndicator(color = Gold)
+                        CircularProgressIndicator(color = Gold, modifier = Modifier.align(Alignment.Center))
                     } else {
                         CarouselCard(
                             pagesCount = ahadeth.itemCount,

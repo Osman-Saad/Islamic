@@ -1,4 +1,4 @@
-package com.pbws.islami.ui.screens.praytime.composable
+package com.pbws.islami.ui.screens.praytimeazkar.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border

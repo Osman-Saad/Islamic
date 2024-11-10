@@ -12,8 +12,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -28,7 +34,22 @@ import com.pbws.islami.ui.theme.Gold
 import com.pbws.islami.ui.theme.jannaLt
 
 @Composable
-fun SoundItem(){
+fun SoundItem(
+    title:String,
+    isPlaying:Boolean,
+    onOpenSoundClick:(Boolean)->Unit,
+    onForwardClick:()->Unit,
+    onBackwardClick:()->Unit
+    ){
+    var audioIsPlay by rememberSaveable {
+        mutableStateOf(false)
+    }
+
+    if (audioIsPlay != isPlaying) {
+        audioIsPlay = isPlaying
+    }
+
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.background(
@@ -38,7 +59,7 @@ fun SoundItem(){
     ){
         Column {
             Text(
-                text = "Radio Ibrahim Al-Akdar",
+                text = title,
                 fontSize = 18.sp,
                 fontFamily = jannaLt,
                 modifier = Modifier
@@ -58,22 +79,31 @@ fun SoundItem(){
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ){
-                    Icon(
-                        painter = painterResource(id = R.drawable.next_sound_ic) ,
-                        contentDescription = null,
-                        modifier = Modifier.size(36.dp)
-                    )
+                    IconButton(onClick = {onBackwardClick()}) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.previous_sound_ic) ,
+                            contentDescription = null,
+                            modifier = Modifier.size(36.dp)
+                        )
+                    }
                     Spacer(modifier = Modifier.width(16.dp))
-                    Icon(
-                        painter = painterResource(id = R.drawable.play_ic) ,
-                        contentDescription = null,
-                    )
+                    IconButton(onClick = {
+                        audioIsPlay = !audioIsPlay
+                        onOpenSoundClick(audioIsPlay)
+                    }) {
+                        Icon(
+                            painter = painterResource(id = if(audioIsPlay) R.drawable.open_sound else R.drawable.play_ic) ,
+                            contentDescription = null,
+                        )
+                    }
                     Spacer(modifier = Modifier.width(16.dp))
-                    Icon(
-                        painter = painterResource(id = R.drawable.next_sound_ic) ,
-                        contentDescription = null,
-                        modifier = Modifier.size(36.dp)
-                    )
+                    IconButton(onClick = { onForwardClick() }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.next_sound_ic) ,
+                            contentDescription = null,
+                            modifier = Modifier.size(36.dp)
+                        )
+                    }
                 }
             }
         }
